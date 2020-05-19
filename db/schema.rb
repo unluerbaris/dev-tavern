@@ -27,10 +27,8 @@ ActiveRecord::Schema.define(version: 2020_05_19_060016) do
   end
 
   create_table "projects", force: :cascade do |t|
-    searchable do
     t.string "name"
     t.text "description"
-  end
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
