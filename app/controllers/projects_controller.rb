@@ -7,6 +7,14 @@ class ProjectsController < ApplicationController
     @project = Project.new
   end
 
+  def tagged
+  if params[:tag].present?
+    @projects = Project.tagged_with(params[:tag])
+  else
+    @projects = Project.all
+  end
+end
+
   def create
     @project = Project.new(project_params)
     @project.user = current_user
@@ -20,6 +28,6 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:name, :description)
+    params.require(:project).permit(:name, :description, tag_list: [])
   end
 end
