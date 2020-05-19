@@ -1,0 +1,10 @@
+<h1>Testing!</h1>
+<a href="/user/<%= User.find(@project.user_id).username %>"><span><%= User.find(@project.user_id).username %></span> </a>
+<% project = Project.find(params[:id]) %>
+<span><%= project.name %></span>
+<span><%= project.description %></span>
+<% @project.tag_list.each do |tag| %>
+  <h2><%= tag %></h2>
+<% end %>
+
+

@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :projects, only: [:new, :create, :show]
   resources :matches, only: [:create]
+  get '/tagged', to: "projects#tagged", as: :tagged
 end
