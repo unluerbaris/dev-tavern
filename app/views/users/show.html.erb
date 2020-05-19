@@ -1,0 +1,9 @@
+<h1><%= User.find_by_username(params[:id]).username %></h1>
+
+
+<% @projects.each do |project| %>
+<%= project.name %>
+<%= project.description %>
+<% end %>
+
+
