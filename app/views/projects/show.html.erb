@@ -1,4 +1,5 @@
-<a href="/user/<%= User.find(@project.user_id).username %>"><span><%= User.find(@project.user_id).username %></span> </a>
+<a href="/users/<%= User.find(@project.user_id).username %>"><span><%= User.find(@project.user_id).username %></span> </a>
+
 <% project = Project.find(params[:id]) %>
 <div>
   <div><%= render 'banner'%></div>
