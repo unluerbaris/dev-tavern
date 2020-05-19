@@ -1,10 +1,14 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<ul>
-  <% @projects.each do |project| %>
-    <li><%= project.name %>--<%= project.description %></li>
-  <% end %>
-</ul>
+<% @projects.each do |project| %>
+  <h2><%= project.name %></h2>
+  <p>
+    <% project.tag_list.each do |tag| %>
+      <%= link_to tag, tagged_path(tag: tag) %>
+    <% end %>
+  </p>
+<% end %>
+<% if policy(Project).create? %>
+  <%= link_to "New project", new_project_path %>
+<% end %>
 
 <% if policy(Project).create? %>
   <%= link_to "New project", new_project_path %>
