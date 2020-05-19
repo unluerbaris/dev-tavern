@@ -7,9 +7,9 @@ class PagesController < ApplicationController
 
   def tagged
     if params[:tag].present?
-      @restaurants = Project.tagged_with(params[:tag])
+      @projects = Project.tagged_with(params[:tag])
     else
-      @restaurants = Project.all
+      @projects = Project.all
     end
   end
 end
