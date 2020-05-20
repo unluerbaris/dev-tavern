@@ -5,6 +5,7 @@
 .project-info {
   background-color: $cream;
   border: 1px solid $light-gray;
+
   // row has 15px left-right margin by default
   // if we make it 0px, borders look better
   margin-left: 0px;
@@ -18,8 +19,6 @@
   border: 2px solid $b-gray;
   box-shadow: 3px 3px 1px 1px rgba(0, 0, 255, .1);
   margin: 15px 15px;
-  height: 200px;
-  width: 300px;
 }
 
 .description p {
@@ -29,11 +28,124 @@
 
 .skills {
   list-style-type: none;
+  padding-left: 0px;
 }
 
-// .member-link {
-//   color: $dark-aqua;
-//   &:hover{
-//     text-decoration: none;
-//   }
-// }
+.member-link {
+  color: $dark-aqua;
+  &:hover{
+    text-decoration: none;
+  }
+}
+
+@media (max-width: 960px) {
+  /* For a screen < 960px, this CSS will be read */
+  .description p {
+    font-size: 14px;
+    white-space: pre-wrap;
+  }
+
+  .members-bar {
+    h4 {
+      font-size: 20px;
+    }
+    li {
+      font-size: 14px;
+    }
+    a {
+      font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  /* For a screen < 720px, this CSS will be read */
+  .description p {
+    font-size: 12px;
+    white-space: pre-wrap;
+  }
+
+  .members-bar {
+    h4 {
+      font-size: 16px;
+    }
+    li {
+      font-size: 12px;
+    }
+    a {
+      font-size: 12px;
+    }
+  }
+
+  .project-name {
+    h3 {
+      font-size: 30px;
+    }
+
+    h4 {
+      font-size: 25px;
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  /* For a screen < 540px, this CSS will be read */
+  .description p {
+    font-size: 10px;
+    white-space: pre-wrap;
+  }
+
+  .members-bar {
+    h4 {
+      font-size: 14px;
+    }
+    li {
+      font-size: 10px;
+    }
+    a {
+      font-size: 10px;
+    }
+  }
+
+  .project-name {
+    h3 {
+      font-size: 25px;
+    }
+
+    h4 {
+      font-size: 20px;
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  /* For a screen < 540px, this CSS will be read */
+  .description p {
+    font-size: 10px;
+    white-space: pre-wrap;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .members-bar {
+    h4 {
+      font-size: 20px;
+    }
+    li {
+      font-size: 14px;
+    }
+    a {
+      font-size: 14px;
+    }
+  }
+
+  .project-name {
+    h3 {
+      font-size: 25px;
+    }
+
+    h4 {
+      font-size: 20px;
+    }
+  }
+}
