@@ -12,18 +12,28 @@
 }
 
 .img-div {
-  background-image: url("https://cdn.gamer-network.net/2017/usgamer/kirby-amazing-mirror.png/EG11/thumbnail/600x400/format/jpg/quality/75");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;
-  border: 2px solid black;
+  border: 2px solid $b-gray;
   box-shadow: 3px 3px 1px 1px rgba(0, 0, 255, .1);
   margin: 15px 15px;
-  height: 400px;
-  width: 600px;
+  height: 200px;
+  width: 300px;
 }
 
 .description p {
-  font-size: 18px;
+  font-size: 16px;
+  white-space: pre-wrap;
 }
 
+.skills {
+  list-style-type: none;
+}
+
+// .member-link {
+//   color: $dark-aqua;
+//   &:hover{
+//     text-decoration: none;
+//   }
+// }
