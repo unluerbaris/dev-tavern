@@ -1,14 +1,13 @@
-<% require 'open-uri' %>
-
 <% if project.photo.attached? %>
     <%= cl_image_tag project.photo.key, class: "card-img" %>
 <% else %>
 <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg", class: "card-img" %>
  <% end %>
-<%= image_tag open('http://le-wagon-tokyo.herokuapp.com/batches/394/student').read, class: "card-avatar" %>
 <h2><%= project.name %></h2>
 <object class='tag'>
   <% project.tag_list.each do |tag| %>
-    <%= link_to tag, tagged_path(tag: tag), class: 'btn btn-primary btn-tag' %>
-  <% end %>
+  <i class="fab fa-slack-hash", id='tag-icon'>
+    <%= link_to tag, tagged_path(tag: tag), class: 'btn-tag' %>
+  </i>
+ <% end %>
 </object>

@@ -1,5 +1,11 @@
 // Specific CSS for your home-page
-.center {
-  margin: 24px;
+.card-container {
+  width: -webkit-fill-available;
+  margin: 0 auto;
   text-align: center;
+  position: absolute;
+  top: 240px;
+  h1 {
+    color: $white;
+  }
 }

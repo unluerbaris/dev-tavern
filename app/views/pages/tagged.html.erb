@@ -1,12 +1,16 @@
-<div class="container">
-  <div class="cards">
-    <% @projects.each do |project| %>
-    <div class="card-background">
-      <%#= link_to project_path(project), class: "card" do  %>
-      <a href="<%= project_path(project) %>" class="card">
-        <%= render 'projects/card', project: project %>
-      </a>
+<div class="top-banner">
+</div>
+<div class="card-container">
+  <div class="container">
+    <div class="cards">
+      <% @projects.each do |project| %>
+      <div class="card-background">
+        <%#= link_to project_path(project), class: "card" do  %>
+        <a href="<%= project_path(project) %>" class="card">
+          <%= render 'projects/card', project: project %>
+        </a>
+      </div>
+    <% end %>
     </div>
-  <% end %>
   </div>
 </div>
