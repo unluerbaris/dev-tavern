@@ -1,7 +1,21 @@
+<div class="container">
 <h1>Create a New Project</h1>
 <%= simple_form_for(@project) do |f| %>
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :tag_list, as: :check_boxes, collection: [ "JavaScript Developer", "3D Modeler", "Sound Engineer" ] %>
+    <span class="form-name"><%= f.input :name, label: "Project Name" %></span>
+    <span class="form-description"><%= f.label :name, "Example: Moonshot - A Unity Adventure Game" %></span>
+    <span class="form-name"><%= f.input :description, label: "Project Details", :input_html => {:rows => 10} %></span>
+    <span class="form-description"><%= f.label :description, "A detailed description of your project's content, goals, and who you wish to recruit." %></span>
+    <span class="form-name"><%= f.input :photo, as: :file %></span>
+    <span class="form-name"><%= f.label :tag_list, "What kind of developer do you need?" %></span>
+    <div class="developer-type d-flex justify-content-around">
+    <%= f.input :tag_list, label: "Web Developers", as: :check_boxes, collection: [ "JavaScript Developer", "Ruby on Rails Developer", "Mobile UX/UI Designer" ] %>
+    <%= f.input :tag_list, label: "Web Developers", as: :check_boxes, collection: [ "Python Developer", "Graphic Designer", "TypeScript Developer" ] %>
+    <%= f.input :tag_list, label: "Game Developers", as: :check_boxes, collection: [ "Unity 3D Modeler", "GameMaker Studio Programmer", "Sound Engineer" ] %>
+    <%= f.input :tag_list, label: "Game Developers", as: :check_boxes, collection: [ "OpenGL Programmer", "Sprite Artist", "Korg Musician" ] %>
+  </div>
+  <div class="button-container">
     <%= f.submit "Create a new project" %>
+  </div>
+
   <% end %>
+</div>
