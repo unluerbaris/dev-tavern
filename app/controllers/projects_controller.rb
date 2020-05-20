@@ -30,6 +30,6 @@ end
   private
 
   def project_params
-    params.require(:project).permit(:name, :description, tag_list: [])
+    params.require(:project).permit(:name, :description, :photo, tag_list: [])
   end
 end
