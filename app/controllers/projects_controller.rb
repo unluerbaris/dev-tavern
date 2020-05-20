@@ -1,6 +1,11 @@
 class ProjectsController < ApplicationController
+skip_before_action :authenticate_user!, only: :index
   def show
     @project = Project.find(params[:id])
+  end
+
+  def index
+    @projects = policy_scope(Project).all.order(created_at: :desc)
   end
 
   def new
