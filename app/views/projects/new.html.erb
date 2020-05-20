@@ -2,6 +2,7 @@
 <%= simple_form_for(@project) do |f| %>
     <%= f.input :name %>
     <%= f.input :description %>
+    <%= f.input :photo, as: :file %>
     <%= f.input :tag_list, as: :check_boxes, collection: [ "JavaScript Developer", "3D Modeler", "Sound Engineer" ] %>
     <%= f.submit "Create a new project" %>
   <% end %>
