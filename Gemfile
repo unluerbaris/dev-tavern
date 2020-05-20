@@ -6,6 +6,8 @@ ruby '2.6.6'
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'faker'
 gem 'devise'
+gem 'dotenv-rails', groups: [:development, :test]
+gem 'cloudinary', '~> 1.12.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3'
 # Use postgresql as the database for Active Record
