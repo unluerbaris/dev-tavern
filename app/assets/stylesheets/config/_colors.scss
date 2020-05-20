@@ -2,15 +2,18 @@
 
 // For example:
 $red: #FD1015;
-$blue: #167FFB;
-$yellow: #FFC65A;
-$orange: #E67E22;
-$green: #1EDD88;
-$gray: #0E0000;
-$light-gray: #F4F4F4;
+$blue: #2F3E46;
+$light-blue: #354F52;
+$green: #52796F;
+$gray: #363D3C;
+$light-gray: #dfdfdf;
+$light-green: #84A98C;
+$yellow: #FFD82C;
+$orange: #FFAB2C;
 
 // Baris' colors
-$b-gray: #dfdfdf;
-$aqua: #bfd8d5;
-$dark-aqua: #b1bed5;
-$cream:  #f8f3eb;
+
+$aqua: $light-green;
+$dark-aqua: $blue;
+$cream:  none;
+$b-gray: $light-gray;
