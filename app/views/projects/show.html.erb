@@ -22,12 +22,14 @@
         </div>
 
         <div class="images-div row justify-content-space-between">
+          <% if @project.photo.attached? %>
           <div class="img-div">
             <%= cl_image_tag @project.photo.key, height: 200, width: 300, crop: :fill %>
           </div>
           <div class="img-div">
             <%= cl_image_tag @project.photo.key, height: 200, width: 300, crop: :fill %>
           </div>
+          <% end %>
         </div>
       </div>
     </div>
