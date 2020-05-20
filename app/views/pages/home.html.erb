@@ -1,17 +1,17 @@
+<%= render 'banner' %>
+<div class="center">
+  <h1>Find hot projects here🔥</h1>
+</div>
 <div class="container">
   <div class="cards">
     <% @projects.each do |project| %>
-      <div class="card">
-        <%= link_to project_path(project), class: "project-link" do  %>
-        <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg", class: "card-img" %>
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar card-avatar" %>
-        <h2><%= project.name %></h2>
-        <% project.tag_list.each do |tag| %>
-          <%= link_to tag, tagged_path(tag: tag) %>
-        <% end %>
-        </div>
-      <% end %>
-    <% end %>
+    <div class="card-background">
+      <%#= link_to project_path(project), class: "card" do  %>
+      <a href="<%= project_path(project) %>" class="card">
+        <%= render 'projects/card', project: project %>
+      </a>
+    </div>
+  <% end %>
   </div>
 </div>
 
