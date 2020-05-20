@@ -1,4 +1,10 @@
 class UsersController < ApplicationController
+skip_before_action :authenticate_user!, only: :index
+
+  def index
+    @users = policy_scope(User).all.order(created_at: :desc)
+  end
+
   def show
     if User.find_by_username(params[:id])
       @username = params[:id]
