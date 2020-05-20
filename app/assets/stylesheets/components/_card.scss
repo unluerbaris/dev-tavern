@@ -59,6 +59,7 @@
     border-radius: 8px;
     padding: 1rem;
     position: relative;
+    text-decoration: none !important;
   }
 }
 
@@ -83,9 +84,8 @@
 }
 
 h2 {
-    text-decoration: none !important;
     color: $gray;
-    font-size: 24px;
+    font-size: 18px;
     margin-top: 60px;
 }
 
