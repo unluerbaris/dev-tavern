@@ -3,6 +3,37 @@
 }
 
 .project-info {
-  border: 1px solid $aqua;
-  background-color: $light-gray;
+  background-color: $cream;
+
+  // row has 15px left-right margin by default
+  // if we make it 0px, borders look better
+  margin-left: 0px;
+  margin-right: 0px;
 }
+
+.img-div {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  border: 2px solid $b-gray;
+  box-shadow: 3px 3px 1px 1px rgba(0, 0, 255, .1);
+  margin: 15px 15px;
+  height: 200px;
+  width: 300px;
+}
+
+.description p {
+  font-size: 16px;
+  white-space: pre-wrap;
+}
+
+.skills {
+  list-style-type: none;
+}
+
+// .member-link {
+//   color: $dark-aqua;
+//   &:hover{
+//     text-decoration: none;
+//   }
+// }
