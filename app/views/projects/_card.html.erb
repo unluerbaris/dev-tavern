@@ -1,4 +1,8 @@
+  <% if project.photo.attached? %>
+    <%= cl_image_tag project.photo.key, class: "card-img" %>
+<% else %>
 <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg", class: "card-img" %>
+ <% end %>
 <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "card-avatar" %>
 <h2><%= project.name %></h2>
 <object class='tag'>
