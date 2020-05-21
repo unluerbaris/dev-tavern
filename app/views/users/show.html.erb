@@ -1,5 +1,4 @@
 <div class="top-banner user-banner">
-
   <div class="container">
     <div class="user-info">
       <h3><%= @user.username %></h3>
@@ -9,61 +8,78 @@
     </div>
   </div>
 </div>
-<div class="container">
-  <div class="m-3">
+<div class="container container-user-title">
     <h1>
       <%= @user.username %>'s projects
     </h1>
-  </div>
 </div>
-<div class="container">
-  <div class="project">
-    <% @projects.each do |project| %>
-      <div class="card">
+<div class="container project-container">
+  <% @projects.each do |project| %>
+    <div class="project">
+      <div class="project-detail">
         <h2><%= project.name %></h2>
         <%= project.description %>
+      </div>
+      <div class="project-status">
         <% if @user == current_user %>
           <button class="btn btn-primary edit-btn">Check requests</button>
           <div class="edit-form">
-              <% project.matches.each do |match| %>
-                <%= link_to "From #{match.user.username}", user_path(match.user)  %>
-                <%= match.role %>
-                <%= simple_form_for match do |f| %>
-                  <%= f.input :status, as: :hidden, input_html: { value: 'accepted' }  %>
-                  <%= f.submit 'accept' %>
-                <% end %>
-                <%= simple_form_for match do |f| %>
-                  <%= f.input :status, as: :hidden, input_html: { value: 'rejected' }  %>
-                  <%= f.submit 'reject' %>
-                <% end %>
+
+            <% project.matches.each do |match| %>
+              <div class="requested-user">
+              <small>From</small>
+              <p><%= link_to match.user.username, user_path(match.user)  %></>
+              <small><%= match.role %></small>
+              </div>
+              <div class="status">
+              <%= simple_form_for match do |f| %>
+                <%= f.input :status, as: :hidden, input_html: { value: 'accepted' }  %>
+                <%= f.submit 'accept' %>
               <% end %>
+              <%= simple_form_for match do |f| %>
+                <%= f.input :status, as: :hidden, input_html: { value: 'rejected' }  %>
+                <%= f.submit 'reject' %>
+              <% end %>
+              </div>
+            <% end %>
+
+
           </div>
         <% else %>
-            <% project.tag_list.each do |tag| %>
-              <%= tag %>
-            <% end %>
+          <% project.tag_list.each do |tag| %>
+             <i class="fab fa-slack-hash">
+               <%= link_to tag, tagged_path %>
+             </i>
+          <% end %>
         <% end %>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
-
-  <div class="m-3">
+<div class="container project-container">
+  <div class="container-user-title">
     <h1>Requested projects</h1>
   </div>
   <% if @matches.any? %>
-    <div class="cards">
-      <% @matches.each do |match| %>
-        <div class="card-background">
-            <%= render 'projects/card', project: match.project %>
-        </div>
-      <% end %>
+  <% @matches.each do |match| %>
+  <div class="project">
+    <div class="project-detail">
+      <h2><%= match.project.name %></h2>
+      <%= match.project.description %>
     </div>
+　　 <div class="project-status">
+       <i class="fab fa-slack-hash">
+         <%= link_to match.role, tagged_path %>
+       </i>
+     </div>
+    </div>
+   <% end %>
   <% else %>
     <div class="m-3">
       <h3>You haven't requested yet...</h3>
     </div>
   <% end %>
+</div>
 
 
 
