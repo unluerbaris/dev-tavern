@@ -2,6 +2,13 @@
 <div class="card-container">
   <div class="container">
     <h1>Find hot projects here🔥</h1>
+    <%= form_tag projects_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a Project" %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
     <div class="cards">
       <% @projects.each do |project| %>
       <div class="card-background">
