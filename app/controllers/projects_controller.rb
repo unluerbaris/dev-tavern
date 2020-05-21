@@ -1,11 +1,17 @@
 class ProjectsController < ApplicationController
-skip_before_action :authenticate_user!, only: :index
+skip_before_action :authenticate_user!, only: [:index, :query]
   def show
     @project = Project.find(params[:id])
   end
 
+
   def index
-    @projects = policy_scope(Project).all.order(created_at: :desc)
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR description ILIKE :query"
+      @projects = policy_scope(Project).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @projects = policy_scope(Project).all.order(created_at: :desc)
+    end
   end
 
   def new
