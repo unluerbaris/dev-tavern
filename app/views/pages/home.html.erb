@@ -1,14 +1,26 @@
 <%= render 'banner' %>
 <div class="card-container">
   <div class="container">
-    <h1>Find awesome projects to work on now</h1>
-    <%= form_tag projects_path, method: :get do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Find a Project" %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
-    <% end %>
+    
+    <div class="search-font"><h1>Find awesome projects to work on now</h1></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <%= form_tag projects_path, class: "row", method: :get do %>
+          <div class="col-12 col-sm pr-sm-0">
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control input-lg",
+              placeholder: "Find a Project" %>
+          </div>
+          <div class="input-group-btn ml-3">
+            <%= submit_tag "Search", class: "btn btn-primary" %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
     <div class="cards">
       <% @projects.each do |project| %>
         <div class="card-background">

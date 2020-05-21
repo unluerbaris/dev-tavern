@@ -1,23 +1,33 @@
+
 <% if project.photo.attached? %>
-    <%= cl_image_tag project.photo.key, class: "card-img" %>
+  <%= cl_image_tag project.photo.key, class: "card-img", width: 300, height: 200, crop: :scale %>
 <% else %>
-<%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg", class: "card-img" %>
- <% end %>
-<h2><%= project.name %></h2>
-<object class='tag'>
-  <% if project.tag_list.size <= 2 %>
-    <% project.tag_list.each do |tag| %>
-      <i class="fab fa-slack-hash", id='tag-icon'>
-      <%= link_to tag, tagged_path(tag: tag), class: 'btn-tag' %>
-      </i>
-    <% end %>
-  <% else %>
-    <% project.tag_list.first(2).each do |tag| %>
-    <i class="fab fa-slack-hash", id='tag-icon'>
-      <%= link_to tag, tagged_path(tag: tag), class: 'btn-tag' %>
-    </i>
-    <% end %>
-       <i class="fab fa-slack-hash", id='tag-icon'>
-    <%= link_to "More...", project_path(project), class: 'btn-tag' %>
- <% end %>
-</object>
+  <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg", class: "card-img" %>
+<% end %>
+
+<div class="card-title">
+  <h2><%= project.name %></h2>
+  <h6><%= project.user.username %></h6>
+</div>
+
+<!-- TAGS -->
+  <object >
+    <div class='tag'>
+      <% if project.tag_list.size <= 2 %>
+        <% project.tag_list.each do |tag| %>
+          <i class="fab fa-slack-hash", id='tag-icon'>
+          <%= link_to tag, tagged_path(tag: tag), class: 'btn-tag' %>
+          </i>
+        <% end %>
+      <% else %>
+        <% project.tag_list.first(2).each do |tag| %>
+          <i class="fab fa-slack-hash", id='tag-icon'>
+            <%= link_to tag, tagged_path(tag: tag), class: 'btn-tag' %>
+          </i>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="tag">
+      <%= link_to "More...", project_path(project), class: 'btn-tag' %>
+    </div>
+  </object>

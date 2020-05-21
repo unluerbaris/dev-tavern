@@ -16,11 +16,23 @@
   position: relative;
   background-size: cover;
   height: 400px;
-  background-image: url("dtbannergreen3.png");
+  background-image: url("dtbg.png");
   .container {
     padding-top: 200px;
     line-height: 1.6;
   }
+}
+
+.banner-project {
+background-image: url("dtbg.png");
+background-size: cover;
+height: 200px;
+h1 {
+  color: $white;
+  text-align: center;
+  padding-top: 1em;
+  font-size: 400%;
+}
 }
 
 .top-banner h1 {
@@ -48,6 +60,15 @@
     padding-top: 10px;
     line-height: 1.6;
   }
+}
+
+.title-text {
+  font-family: Roboto;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 5px;
+  font-size: 1.8em;
 }
 
 
