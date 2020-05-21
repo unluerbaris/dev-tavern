@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :matches
   has_many :projects
+  acts_as_taggable_on :tags
 
   validates :username, presence: true, uniqueness: true
 end

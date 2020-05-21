@@ -14,4 +14,14 @@ skip_before_action :authenticate_user!, only: :index
     @projects = Project.where("user_id = ?" , User.find_by_username(params[:id]).id)
     @newProject = Project.new
   end
+
+
+   def tagged
+  if params[:tag].present?
+    @users = User.tagged_with(params[:tag])
+  else
+    @users = User.all
+  end
+end
+
 end
