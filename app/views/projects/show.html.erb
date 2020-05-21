@@ -47,9 +47,14 @@
           <% end %>
         </ul>
         <h4><strong>Members</strong></h4>
-        <a class="member-link" href="/users/<%= User.find(@project.user_id).username %>">
-          <span><%= User.find(@project.user_id).username %></span>
-        </a>
+        <div class="members">
+          <a class="member-link" href="/users/<%= User.find(@project.user_id).username %>">
+            <span><%= User.find(@project.user_id).username %></span>
+          </a>
+        </div>
+        <div class="buttons mt-3">
+          <a href="/projects/<%= Project.find(@project.id).id %>" type="button" class="btn btn-secondary btn-block">Join our team</a>
+        </div>
       </div>
     </div>
 
