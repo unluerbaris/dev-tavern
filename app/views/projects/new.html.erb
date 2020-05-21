@@ -1,5 +1,5 @@
-<div class="container">
-  <div class="card d-inline-flex">
+<div class="container d-flex">
+  <div class="card">
 <h1>Create a New Project</h1>
 <%= simple_form_for(@project) do |f| %>
     <span class="form-name"><%= f.input :name, label: "Project Name" %></span>
@@ -9,12 +9,8 @@
     <span class="form-name"><%= f.input :photo, as: :file, required: true %></span>
     <span class="form-name"><%= f.label :tag_list, "What kind of developer do you need?" %></span>
     <div class="developer-type d-flex justify-content-around">
-    <%= f.input :tag_list, label: "Web Developers", as: :check_boxes, collection: [ "JavaScript Developer", "Ruby on Rails Developer", "Mobile UX/UI Designer" ] %>
-    <%= f.input :tag_list, label: "Web Developers", as: :check_boxes, collection: [ "Python Developer", "Graphic Designer", "TypeScript Developer" ] %>
-    <%= f.input :tag_list, label: "Game Developers", as: :check_boxes, collection: [ "Unity 3D Modeler", "GameMaker Studio Programmer", "Sound Engineer" ] %>
-    <%= f.input :tag_list, label: "Game Developers", as: :check_boxes, collection: [ "OpenGL Programmer", "Sprite Artist", "Korg Musician" ] %>
+<%= f.input :tag_list, label: "Developers", collection: [ "JavaScript Developer", "Ruby on Rails Developer", "Mobile UX/UI Designer", "Python Developer", "Graphic Designer", "TypeScript Developer", "Unity 3D Modeler", "GameMaker Studio Programmer", "Sound Engineer", "OpenGL Programmer", "Sprite Artist", "Korg Musician" ], input_html: {class: "select2", multiple: "multiple"} %>
   </div>
-
 
   <div class="button-container">
     <%= f.submit "Create a new project" %>
@@ -22,4 +18,5 @@
 
   <% end %>
 </div>
+
 </div>
