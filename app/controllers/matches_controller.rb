@@ -13,7 +13,9 @@ class MatchesController < ApplicationController
   end
 
   def update
-    @match = Match.update(match_params)
+    @match = Match.find(params[:id])
+    @match.update(match_params)
+    authorize @match
     if @match.save
       redirect_to user_path(current_user)
     else
@@ -25,7 +27,7 @@ class MatchesController < ApplicationController
 private
 
   def match_params
-    params.require(:match).permit(:project_id, :role)
+    params.require(:match).permit(:project_id, :role, :status)
   end
 
 end
