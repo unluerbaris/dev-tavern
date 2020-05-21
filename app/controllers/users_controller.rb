@@ -7,11 +7,12 @@ skip_before_action :authenticate_user!, only: :index
 
   def show
     if User.find_by_username(params[:id])
-      @username = params[:id]
+      @user = User.find_by_username(params[:id])
     else
       redirect_to root_path, :notice=> "User not found!"
     end
-    @projects = Project.where("user_id = ?" , User.find_by_username(params[:id]).id)
-    @newProject = Project.new
+    @projects = Project.where(user: @user)
+    @matches = Match.where(user: @user)
   end
+
 end

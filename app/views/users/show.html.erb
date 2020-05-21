@@ -1,21 +1,65 @@
-<h1><%= User.find_by_username(params[:id]).username %></h1>
-
-
-<% @projects.each do |project| %>
-<div class="card-container">
+<div class="top-banner user-banner">
   <div class="container">
-    <div class="cards">
-      <% @projects.each do |project| %>
-      <div class="card-background">
-        <%#= link_to project_path(project), class: "card" do  %>
-        <a href="<%= project_path(project) %>" class="card">
-          <%= render 'projects/card', project: project %>
-        </a>
+    <div class="user-info">
+      <h3><%= @user.username %></h3>
+      <h3>Location: <%= @user.location %></h3>
+      <p>Bio: <%= @user.bio %></p>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="m-3">
+    <h1>Your projects</h1>
+  </div>
+  <div class="cards">
+    <% @projects.each do |project| %>
+      <div class="card">
+        <h2><%= project.name %></h2>
+        <%= project.description %>
+        <%= project.tag_list %>
       </div>
     <% end %>
   </div>
+  <div class="m-3">
+    <h1>Received request</h1>
   </div>
+  <% if @matches.any? %>
+    <div class="cards">
+      <% @matches.each do |match| %>
+        project = match.project
+        <div class="card-background">
+          <a href="<%= project_path(project) %>" class="card">
+            <%= render 'projects/card', project: project %>
+          </a>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="m-3">
+      <h3>You haven't requested yet...</h3>
+    </div>
+  <% end %>
+
+
+  <div class="m-3">
+    <h1>Requested projects</h1>
+  </div>
+  <% if @matches.any? %>
+    <div class="cards">
+      <% @matches.each do |match| %>
+        project = match.project
+        <div class="card-background">
+          <a href="<%= project_path(project) %>" class="card">
+            <%= render 'projects/card', project: project %>
+          </a>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="m-3">
+      <h3>You haven't requested yet...</h3>
+    </div>
+  <% end %>
 </div>
-<% end %>
 
 
