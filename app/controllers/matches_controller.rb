@@ -12,6 +12,16 @@ class MatchesController < ApplicationController
     end
   end
 
+  def update
+    @match = Match.update(match_params)
+    if @match.save
+      redirect_to user_path(current_user)
+    else
+      @project = @match.project
+      render 'users/show'
+    end
+  end
+
 private
 
   def match_params
