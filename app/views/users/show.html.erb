@@ -18,10 +18,22 @@
       <div class="card">
         <h2><%= project.name %></h2>
         <%= project.description %>
-        <% project.matches.each do |match| %>
-          <h3><%= match.role %></h3>
-          <%= match.status %>
+        <% project.tag_list do |tag| %>
+            <%= tag %>
         <% end %>
+
+        <% if @user == current_user %>
+            <% project.matches.each do |match| %>
+              <h3><%= match.role %></h3>
+              <%= match.status %>
+            <% end %>
+        <% else %>
+            <% project.tag_list do |tag| %>
+              <%= tag %>
+            <% end %>
+        <% end %>
+
+
       </div>
     <% end %>
   </div>
