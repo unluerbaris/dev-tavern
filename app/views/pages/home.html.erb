@@ -3,22 +3,21 @@
   <div class="container">
     <h1>Find hot projects here🔥</h1>
     <%= form_tag projects_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find a Project" %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a Project" %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
     <div class="cards">
       <% @projects.each do |project| %>
-      <div class="card-background">
-        <%#= link_to project_path(project), class: "card" do  %>
-        <a href="<%= project_path(project) %>" class="card">
-          <%= render 'projects/card', project: project %>
-        </a>
-      </div>
-    <% end %>
-  </div>
+        <div class="card-background">
+          <a href="<%= project_path(project) %>" class="card">
+            <%= render 'projects/card', project: project %>
+          </a>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 

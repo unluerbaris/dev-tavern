@@ -6,10 +6,10 @@
   grid-gap: 2rem;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1024px) {
   /* For a screen < 960px, this CSS will be read */
   .cards {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
   .card-avatar {
     top: 40%;
