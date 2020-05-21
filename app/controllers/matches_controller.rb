@@ -15,7 +15,7 @@ class MatchesController < ApplicationController
 private
 
   def match_params
-    params.require(:match).permit(:project_id)
+    params.require(:match).permit(:project_id, :role)
   end
 
 end

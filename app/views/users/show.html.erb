@@ -3,6 +3,7 @@
   <div class="container">
     <div class="user-info">
       <h3><%= @user.username %></h3>
+      <%= @user.tag_list %>
       <h3>Location: <%= @user.location %></h3>
       <p>Bio: <%= @user.bio %></p>
     </div>
@@ -17,42 +18,21 @@
       <div class="card">
         <h2><%= project.name %></h2>
         <%= project.description %>
-        <%= project.tag_list %>
+        <% project.matches.each do |match| %>
+          <h3><%= match.role %></h3>
+          <%= match.status %>
+        <% end %>
       </div>
     <% end %>
   </div>
-  <div class="m-3">
-    <h1>Received request</h1>
-  </div>
-  <% if @matches.any? %>
-    <div class="cards">
-      <% @matches.each do |match| %>
-        project = match.project
-        <div class="card-background">
-          <a href="<%= project_path(project) %>" class="card">
-            <%= render 'projects/card', project: project %>
-          </a>
-        </div>
-      <% end %>
-    </div>
-  <% else %>
-    <div class="m-3">
-      <h3>You haven't requested yet...</h3>
-    </div>
-  <% end %>
-
-
   <div class="m-3">
     <h1>Requested projects</h1>
   </div>
   <% if @matches.any? %>
     <div class="cards">
       <% @matches.each do |match| %>
-        project = match.project
         <div class="card-background">
-          <a href="<%= project_path(project) %>" class="card">
-            <%= render 'projects/card', project: project %>
-          </a>
+            <%= render 'projects/card', project: match.project %>
         </div>
       <% end %>
     </div>
