@@ -2,6 +2,8 @@ class ProjectsController < ApplicationController
 skip_before_action :authenticate_user!, only: [:index, :query]
   def show
     @project = Project.find(params[:id])
+    @matches = @project.matches
+    @match = @project.matches.find_by(user: current_user) || Match.new
   end
 
 
