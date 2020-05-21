@@ -1,7 +1,17 @@
 .user-info {
- padding: 60px;
- widows: 100%;
+
+
+ h1 {
+  font-family: Roboto;
+  color: white;
+  text-align: center;
+ }
 }
+
+.bio {
+  background-color: $light-gray;
+  text-align: center;
+  }
 
 .edit-form {
   display: none;
