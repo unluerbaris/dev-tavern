@@ -1,7 +1,8 @@
 <%= render 'banner' %>
 <div class="card-container">
   <div class="container">
-    <h1>Find awesome projects now</h1>
+    
+    <div class="search-font"><h1>Find awesome projects to work on now</h1></div>
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -19,6 +20,7 @@
         </div>
       </div>
     </div>
+
     <div class="cards">
       <% @projects.each do |project| %>
         <div class="card-background">

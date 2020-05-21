@@ -11,32 +11,43 @@
 </div>
 <div class="container">
   <div class="m-3">
-    <h1>Your projects</h1>
+    <h1>
+      <%= @user.username %>'s projects
+    </h1>
   </div>
-  <div class="cards">
+</div>
+<div class="container">
+  <div class="project">
     <% @projects.each do |project| %>
       <div class="card">
         <h2><%= project.name %></h2>
         <%= project.description %>
-        <% project.tag_list do |tag| %>
-            <%= tag %>
-        <% end %>
-
         <% if @user == current_user %>
-            <% project.matches.each do |match| %>
-              <h3><%= match.role %></h3>
-              <%= match.status %>
-            <% end %>
+          <button class="btn btn-primary edit-btn">Check requests</button>
+          <div class="edit-form">
+              <% project.matches.each do |match| %>
+                <%= link_to "From #{match.user.username}", user_path(match.user)  %>
+                <%= match.role %>
+                <%= simple_form_for match do |f| %>
+                  <%= f.input :status, as: :hidden, input_html: { value: 'accepted' }  %>
+                  <%= f.submit 'accept' %>
+                <% end %>
+                <%= simple_form_for match do |f| %>
+                  <%= f.input :status, as: :hidden, input_html: { value: 'rejected' }  %>
+                  <%= f.submit 'reject' %>
+                <% end %>
+              <% end %>
+          </div>
         <% else %>
-            <% project.tag_list do |tag| %>
+            <% project.tag_list.each do |tag| %>
               <%= tag %>
             <% end %>
         <% end %>
-
-
       </div>
     <% end %>
   </div>
+</div>
+
   <div class="m-3">
     <h1>Requested projects</h1>
   </div>
@@ -53,6 +64,6 @@
       <h3>You haven't requested yet...</h3>
     </div>
   <% end %>
-</div>
+
 
 
