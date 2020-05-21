@@ -6,3 +6,12 @@
     color: $light-gray;
   }
 }
+
+.button input[type=submit]{
+  font-size: 18px;
+  text-decoration: none !important;
+  color: $blue;
+  &:hover {
+    color: $light-gray;
+}
+}
