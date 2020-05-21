@@ -50,13 +50,15 @@
 
           <%= link_to @project.user.username, user_path(@project.user), class: "member-link" %>
         </div>
-        <div class="buttons mt-3">
+        <% unless @project.user == current_user  %>
+          <div class="buttons mt-3">
             <%= simple_form_for [@project, @match] do |f| %>
               <%= f.input :project_id, as: :hidden, input_html: { value: @project.id } %>
               <%= f.input :role, collection: @project.tag_list %>
               <%= f.submit 'Join our team' %>
             <% end %>
-        </div>
+          </div>
+        <% end %>
       </div>
     </div>
 
