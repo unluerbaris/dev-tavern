@@ -21,6 +21,16 @@
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
+    <%= f.input :bio,
+                hint: "Change your bio",
+                required: false,
+                input_html: { autocomplete: "bio", :rows => 10} %>
+<div class="developer-type d-flex justify-content-around">
+    <%= f.input :tag_list, label: "Web Developers", as: :check_boxes, collection: [ "JavaScript Developer", "Ruby on Rails Developer", "Mobile UX/UI Designer" ] %>
+    <%= f.input :tag_list, label: "Web Developers", as: :check_boxes, collection: [ "Python Developer", "Graphic Designer", "TypeScript Developer" ] %>
+    <%= f.input :tag_list, label: "Game Developers", as: :check_boxes, collection: [ "Unity 3D Modeler", "GameMaker Studio Programmer", "Sound Engineer" ] %>
+    <%= f.input :tag_list, label: "Game Developers", as: :check_boxes, collection: [ "OpenGL Programmer", "Sprite Artist", "Korg Musician" ] %>
+  </div>
   </div>
 
   <div class="form-actions">
