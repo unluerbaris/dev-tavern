@@ -1,6 +1,8 @@
 <h1><%= User.find_by_username(params[:id]).username %></h1>
 
+<h1><%= User.find_by_username(params[:id]).bio %></h1>
 
+<h1><%= User.find_by_username(params[:id]).tag_list %></h1>
 <% @projects.each do |project| %>
 <div class="card-container">
   <div class="container">

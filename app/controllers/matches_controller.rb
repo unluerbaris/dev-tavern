@@ -17,4 +17,5 @@ private
   def match_params
     params.require(:match).permit(:project_id)
   end
+
 end
