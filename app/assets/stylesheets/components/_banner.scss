@@ -50,6 +50,13 @@
   }
 }
 
+.title-text {
+  font-family: Overpass;
+  color: white;
+  position: absolute;
+  font-weight: bold;
+}
+
 
 @media (max-width: 720px) {
   /* For a screen < 720px, this CSS will be read */
