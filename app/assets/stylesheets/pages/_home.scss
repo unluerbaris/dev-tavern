@@ -2,7 +2,6 @@
 .card-container {
   width: -webkit-fill-available;
   margin: 0 auto;
-  text-align: center;
   position: absolute;
   top: 240px;
   h1 {
@@ -10,3 +9,6 @@
   }
 }
 
+body {
+  background-color: $light-gray;
+}
