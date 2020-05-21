@@ -5,9 +5,19 @@
  <% end %>
 <h2><%= project.name %></h2>
 <object class='tag'>
-  <% project.tag_list.each do |tag| %>
-  <i class="fab fa-slack-hash", id='tag-icon'>
-    <%= link_to tag, tagged_path(tag: tag), class: 'btn-tag' %>
-  </i>
+  <% if project.tag_list.size <= 2 %>
+    <% project.tag_list.each do |tag| %>
+      <i class="fab fa-slack-hash", id='tag-icon'>
+      <%= link_to tag, tagged_path(tag: tag), class: 'btn-tag' %>
+      </i>
+    <% end %>
+  <% else %>
+    <% project.tag_list.first(2).each do |tag| %>
+    <i class="fab fa-slack-hash", id='tag-icon'>
+      <%= link_to tag, tagged_path(tag: tag), class: 'btn-tag' %>
+    </i>
+    <% end %>
+       <i class="fab fa-slack-hash", id='tag-icon'>
+    <%= link_to "More...", project_path(project), class: 'btn-tag' %>
  <% end %>
 </object>
