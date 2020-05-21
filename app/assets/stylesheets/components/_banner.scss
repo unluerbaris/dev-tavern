@@ -14,9 +14,9 @@
 
 .top-banner {
   position: relative;
-  width: 100%;
+  background-size: cover;
   height: 400px;
-  background-image: linear-gradient(to bottom right, $blue, #6A9489);
+  background-image: url("dtbanner3.png");
   .container {
     padding-top: 200px;
     line-height: 1.6;
