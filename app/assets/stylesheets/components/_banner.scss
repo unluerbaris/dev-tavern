@@ -52,7 +52,7 @@ h1 {
 
 .top-banner.user-banner {
   height: 300px;
-  background-image: url('dtbg.png');
+  background-image: asset-url('dtbg.png');
   .container {
     position: absolute;
     padding-top: 10px;
@@ -71,7 +71,7 @@ h1 {
 
 .user-banner {
   height: 300px;
-  background-image: url('dtbg.png');
+  background-image: asset-url('dtbg.png');
   background-size: cover;
 }
 
