@@ -53,7 +53,7 @@
   height: 430px;
   position: relative;
   .card {
-    height: 410px;
+    height: 430px;
     width: 100%;
     box-shadow: 0px 0px 8px rgba(0,0,0,0.4);
     border: 1px solid $light-gray;
@@ -79,8 +79,8 @@
 }
 
 .and-more {
-  margin-top: 20px;
-  margin-left: 18px;
+  margin-right: 18px;
+  text-align: right;
 }
 
 .looking-for {
