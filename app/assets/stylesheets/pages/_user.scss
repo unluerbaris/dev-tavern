@@ -1,32 +1,17 @@
 .user-info {
-
-
- h1 {
-  font-family: Roboto;
   color: white;
-  text-align: center;
- }
-}
-
-.user-tags {
-
-
- h2 {
-  font-family: Roboto;
-  color: white;
-  text-align: center;
- }
+  h1 {
+    font-weight: bold;
+    padding: 60px 0px;
+  }
 }
 
 .user-profile-card {
-  background-color: $light-gray;
   text-align: center;
-  font-family: Roboto;
   font-weight: lighter;
 }
 
 .bio {
-  background-color: $light-gray;
   text-align: center;
   }
 

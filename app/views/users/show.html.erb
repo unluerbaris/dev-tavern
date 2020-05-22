@@ -1,16 +1,43 @@
-<div class="top-banner user-banner">
+<div class="user-banner">
   <div class="container">
     <div class="user-info">
       <h1><%= @user.username %></h1>
-      <div class="user-tags">
-      <h2><%= @user.tag_list %></h2>
-    </div>
+      <h3><%= @user.tag_list %></h3>
     </div>
   </div>
 </div>
 <div class="container project-container">
 <p><%= @user.bio %></p>
 </div>
+<% if @user == current_user %>
+  <div class="container project-container">
+    <div class="container-user-title">
+      <h1><%= @user.username %>'s requests</h1>
+    </div>
+    <% if @matches.any? %>
+    <% @matches.each do |match| %>
+    <div class="project">
+      <div class="project-detail">
+        <h2><%= match.project.name %></h2>
+        <%= match.project.description %>
+      </div>
+  　　 <div class="project-status">
+         <div>
+           <i class="fab fa-slack-hash">
+             <%= link_to match.role, tagged_path %>
+           </i>
+          </div>
+           <%= match.status %>
+       </div>
+      </div>
+     <% end %>
+    <% else %>
+      <div class="m-3">
+        <h3>You haven't requested yet...</h3>
+      </div>
+    <% end %>
+  </div>
+<% end %>
 <div class="container container-user-title">
     <h1>
       <%= @user.username %>'s projects
@@ -46,8 +73,6 @@
                 </div>
               <% end %>
           <% end %>
-
-
           </div>
         <% else %>
           <% project.tag_list.each do |tag| %>
@@ -57,34 +82,6 @@
           <% end %>
         <% end %>
       </div>
-    </div>
-  <% end %>
-</div>
-<div class="container project-container">
-  <div class="container-user-title">
-    <h1>Requested projects</h1>
-  </div>
-  <% if @matches.any? %>
-  <% @matches.each do |match| %>
-  <div class="project">
-    <div class="project-detail">
-      <h2><%= match.project.name %></h2>
-      <%= match.project.description %>
-    </div>
-　　 <div class="project-status">
-       <div>
-         <i class="fab fa-slack-hash">
-           <%= link_to match.role, tagged_path %>
-         </i>
-        </div>
-         <%= match.status %>
-
-     </div>
-    </div>
-   <% end %>
-  <% else %>
-    <div class="m-3">
-      <h3>You haven't requested yet...</h3>
     </div>
   <% end %>
 </div>
