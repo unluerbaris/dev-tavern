@@ -2,7 +2,6 @@
   font-size: 18px;
   text-decoration: none !important;
   color: $blue;
-  font-family: Roboto;
   &:hover {
     color: $green;
   }
@@ -14,5 +13,13 @@
   color: $blue;
   &:hover {
     color: $light-gray;
+  }
 }
+
+.btn-status {
+  border-radius: 8px;
+}
+
+.btn {
+  border-radius: 8px;
 }
