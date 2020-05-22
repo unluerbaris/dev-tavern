@@ -42,7 +42,18 @@
         <h4><strong>Members</strong></h4>
         <div class="members">
 
+          <!-- Link to the creator -->
           <%= link_to @project.user.username, user_path(@project.user), class: "member-link" %>
+
+          <!-- Find other members and create link to their page -->
+          <% @project.matches.each do |match| %>
+            <% if match.status == "accepted" && match.user.username != @project.user.username %>
+              <div>
+                <%= link_to match.user.username, user_path(@project.user), class: "member-link" %>
+              </div>
+            <% end %>
+          <% end %>
+
         </div>
         <% unless @project.user == current_user  %>
           <div class="buttons mt-3">
