@@ -1,22 +1,30 @@
-.members-bar {
-  background-color: $b-gray;
+.project-info {
+  display: flex;
+  justify-content: space-between;
 }
 
 .project-profile-card {
-  background-color: $light-gray;
   text-align: center;
+  width: 70%;
+  margin: 30px;
 }
 
-
-.project-info {
-  background-color: $cream;
-  border: 1px solid $light-gray;
-
-  // row has 15px left-right margin by default
-  // if we make it 0px, borders look better
-  margin-left: 0px;
-  margin-right: 0px;
+.members-bar {
+  width: 40%;
+  margin-right: -30px;
+  .project-profile-card {
+    padding: 16px;
+    box-shadow: 0px 0px 8px rgba(0,0,0,0.4);
+  }
 }
+
+.skills {
+  text-align: start;
+  p {
+    font-size: 11px;
+  }
+}
+
 
 .img-div {
   background-size: cover;

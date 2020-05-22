@@ -5,7 +5,7 @@ class MatchesController < ApplicationController
     @match.user = current_user
     authorize @match
     if @match.save
-      redirect_to project_path(@match.project)
+      redirect_to user_path(current_user)
     else
       @project = @match.project
       render 'projects/show'

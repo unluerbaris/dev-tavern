@@ -13,5 +13,13 @@
   color: $blue;
   &:hover {
     color: $light-gray;
+  }
 }
+
+.btn-status {
+  border-radius: 8px;
+}
+
+.btn {
+  border-radius: 8px;
 }

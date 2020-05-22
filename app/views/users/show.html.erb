@@ -18,7 +18,7 @@
     <% @matches.each do |match| %>
     <div class="project">
       <div class="project-detail">
-        <h2><%= match.project.name %></h2>
+        <h2><%= link_to match.project.name, project_path(match.project) %></h2>
         <%= match.project.description %>
       </div>
   　　 <div class="project-status">
@@ -47,28 +47,28 @@
   <% @projects.each do |project| %>
     <div class="project">
       <div class="project-detail">
-        <h2><%= project.name %></h2>
+        <h2><%= link_to project.name, project_path(project) %></h2>
         <%= project.description %>
       </div>
-      <div class="project-status">
+      <div class="project-status request-status">
         <% if @user == current_user %>
-          <button class="btn btn-primary edit-btn">Check requests</button>
+          <button class="btn btn-primary edit-btn btn-status">Check requests</button>
           <div class="edit-form">
             <% project.matches.each do |match| %>
             <% if match.status == "Pending..." %>
                 <div class="requested-user">
                 <small>From</small>
-                <p><%= link_to match.user.username, user_path(match.user)  %></>
-                <small><%= match.role %></small>
+                <h5><%= link_to match.user.username, user_path(match.user)  %></h5>
                 </div>
+                <small><%= match.role %></small>
                 <div class="status">
                 <%= simple_form_for match do |f| %>
                   <%= f.input :status, as: :hidden, input_html: { value: 'accepted' }  %>
-                  <%= f.submit 'accept', class: 'btn btn-sm btn-primary' %>
+                  <%= f.submit 'accept', class: 'btn btn-sm btn-primary btn-status' %>
                 <% end %>
                 <%= simple_form_for match do |f| %>
                   <%= f.input :status, as: :hidden, input_html: { value: 'rejected' }  %>
-                  <%= f.submit 'reject', class: 'btn btn-sm btn-primary' %>
+                  <%= f.submit 'reject', class: 'btn btn-sm btn-primary btn-status' %>
                 <% end %>
                 </div>
               <% end %>

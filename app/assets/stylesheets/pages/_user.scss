@@ -27,11 +27,13 @@
     top: 0px;
     opacity: 0.9;
     border-radius: 8px;
-
+    padding: 16px;
+    box-shadow: 0px 0px 8px rgba(0,0,0,0.4);
 }
 
 .project {
  background-color: $white;
+ text-decoration: none !important;
  margin: 30px;
  display: flex;
  justify-content: space-between;
@@ -48,11 +50,24 @@
  }
 }
 
+.project-detail a {
+  text-decoration: none !important;
+  &:hover {
+    color: $light-gray;
+  }
+ }
+
+.project-status {
+  text-align: center;
+  line-height: 3;
+}
+
 .project-status a {
   text-decoration: none !important;
   text-shadow: 0px 0px 4px rgba(0,0,0,0.2);
   &:hover {
     color: $light-green;
+    text-shadow: none;
   }
 }
 
@@ -68,4 +83,9 @@
 
 .requested-user p {
   margin: 0;
+  padding: 0;
+}
+
+.request-status {
+  text-align: left;
 }
