@@ -9,6 +9,7 @@
   <h2><%= project.name %></h2>
   <h6><%= project.user.username %></h6>
 </div>
+<div class="looking-for">Looking for:</div>
 
 <!-- TAGS -->
   <object >
@@ -25,9 +26,10 @@
             <%= link_to tag, tagged_path(tag: tag), class: 'btn-tag' %>
           </i>
         <% end %>
+      </div>
+        <div class="and-more">
+      <%= link_to "And others", project_path(project), class: 'btn-tag' %>
+      </div>
       <% end %>
-    </div>
-    <div class="tag">
-      <%= link_to "And more", project_path(project), class: 'btn-tag' %>
     </div>
   </object>
