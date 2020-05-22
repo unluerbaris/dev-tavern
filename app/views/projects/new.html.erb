@@ -1,5 +1,5 @@
 <div class="container d-flex justify-content-around">
-  <div class="card">
+  <div class="card new-project-card p-3 mb-4 mt-4">
 <h1>Create a New Project</h1>
 <%= simple_form_for(@project) do |f| %>
     <span class="form-name"><%= f.input :name, label: "Project Name" %></span>
@@ -9,11 +9,11 @@
     <span class="form-name"><%= f.input :photo, as: :file, required: true %></span>
     <span class="form-name"><%= f.label :tag_list, "What kind of developer do you need?" %></span>
 
-<%= f.input :tag_list, label: false, collection: [ "JavaScript Developer", "Ruby on Rails Developer", "Mobile UX/UI Designer", "Python Developer", "Graphic Designer", "TypeScript Developer", "Unity 3D Modeler", "GameMaker Studio Programmer", "Sound Engineer", "OpenGL Programmer", "Sprite Artist", "Korg Musician" ], input_html: {class: "select2", multiple: "multiple", style: 'width: 655px'} %>
+<%= f.input :tag_list, label: false, collection: [ "JavaScript Developer", "Ruby on Rails Developer", "Mobile UX/UI Designer", "Python Developer", "Graphic Designer", "TypeScript Developer", "Unity 3D Modeler", "GameMaker Studio Programmer", "Sound Engineer", "OpenGL Programmer", "Sprite Artist", "Korg Musician", "Unity AI Logic Programmer", "Unity Gameplay Programmer", "Unity Rigging Animator" ], input_html: {class: "select2", multiple: "multiple", style: 'width: 655px'} %>
 
 
 
-    <div class="button d-flex justify-content-around"><%= f.submit "Create a new project" %></div>
+    <div class="d-flex justify-content-around"><%= f.submit "Create a new project", class: "btn btn-primary" %></div>
 
 
   <% end %>

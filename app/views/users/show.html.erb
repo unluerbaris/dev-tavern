@@ -2,11 +2,13 @@
   <div class="container">
     <div class="user-info">
       <h1><%= @user.username %></h1>
-      <%= @user.tag_list %>
+      <div class="user-tags">
+      <h2><%= @user.tag_list %></h2>
+    </div>
     </div>
   </div>
 </div>
-<div class="container bio">
+<div class="container project-container">
 <p><%= @user.bio %></p>
 </div>
 <div class="container container-user-title">
