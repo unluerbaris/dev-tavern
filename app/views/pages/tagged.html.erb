@@ -1,15 +1,39 @@
-<div class="top-banner">
-</div>
+<%= render 'banner' %>
 <div class="card-container">
   <div class="container">
-    <div class="cards">
-      <% @projects.each do |project| %>
-      <div class="card-background">
-        <a href="<%= project_path(project) %>" class="card">
-          <%= render 'projects/card', project: project %>
-        </a>
+
+    <div class="search-font"><h1>Find awesome projects to work on now</h1></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <%= form_tag projects_path, class: "row", method: :get do %>
+          <div class="col-12 col-sm pr-sm-0">
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control input-lg",
+              placeholder: "Find a Project" %>
+          </div>
+          <div class="input-group-btn ml-3">
+            <%= submit_tag "Search", class: "btn btn-primary" %>
+          </div>
+          <% end %>
+        </div>
       </div>
-    <% end %>
+    </div>
+
+    <div class="cards mb-1">
+      <% @projects.each do |project| %>
+        <div class="card-background">
+          <a href="<%= project_path(project) %>" class="card">
+            <%= render 'projects/card', project: project %>
+          </a>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
+
+<%# if policy(Project).create? %>
+  <%#= link_to "New project", new_project_path %>
+<%# end %>
+
