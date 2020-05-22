@@ -27,24 +27,25 @@
         <% if @user == current_user %>
           <button class="btn btn-primary edit-btn">Check requests</button>
           <div class="edit-form">
-
             <% project.matches.each do |match| %>
-              <div class="requested-user">
-              <small>From</small>
-              <p><%= link_to match.user.username, user_path(match.user)  %></>
-              <small><%= match.role %></small>
-              </div>
-              <div class="status">
-              <%= simple_form_for match do |f| %>
-                <%= f.input :status, as: :hidden, input_html: { value: 'accepted' }  %>
-                <%= f.submit 'accept' %>
+            <% if match.status == "Pending..." %>
+                <div class="requested-user">
+                <small>From</small>
+                <p><%= link_to match.user.username, user_path(match.user)  %></>
+                <small><%= match.role %></small>
+                </div>
+                <div class="status">
+                <%= simple_form_for match do |f| %>
+                  <%= f.input :status, as: :hidden, input_html: { value: 'accepted' }  %>
+                  <%= f.submit 'accept', class: 'btn btn-sm btn-primary' %>
+                <% end %>
+                <%= simple_form_for match do |f| %>
+                  <%= f.input :status, as: :hidden, input_html: { value: 'rejected' }  %>
+                  <%= f.submit 'reject', class: 'btn btn-sm btn-primary' %>
+                <% end %>
+                </div>
               <% end %>
-              <%= simple_form_for match do |f| %>
-                <%= f.input :status, as: :hidden, input_html: { value: 'rejected' }  %>
-                <%= f.submit 'reject' %>
-              <% end %>
-              </div>
-            <% end %>
+          <% end %>
 
 
           </div>
@@ -71,9 +72,13 @@
       <%= match.project.description %>
     </div>
 　　 <div class="project-status">
-       <i class="fab fa-slack-hash">
-         <%= link_to match.role, tagged_path %>
-       </i>
+       <div>
+         <i class="fab fa-slack-hash">
+           <%= link_to match.role, tagged_path %>
+         </i>
+        </div>
+         <%= match.status %>
+
      </div>
     </div>
    <% end %>
