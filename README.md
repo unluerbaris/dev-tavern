@@ -1,1 +1,3 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+#README
+
+Basic market place application for finding a project team member by creating own web/game development project. dev-tavern.herokuapp.com/
