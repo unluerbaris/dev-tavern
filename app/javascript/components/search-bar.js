@@ -2,7 +2,7 @@ import Typed from 'typed.js';
 
 const loadDynamicBannerText = () => {
   new Typed('#typed-text', {
-    strings: ["JavaScript Developer", "OpenGL Programmer", "Sprite Artist", "Unity Developer", "Ruby on Rails Developer", "Sound Engineer", "Mobile UX/UI Designer"],
+    strings: [ "Unity 2D Developer", "Unity 3D Developer", "Game Programmer", "2D Graphic Designer", "3D Graphic Designer", "Sound Designer", "Musician", "Script Writer", "Level Designer", "Unreal Engine Developer" ],
     typeSpeed: 60,
     backSpeed: 50,
     startDelay: 200,
